@@ -5,8 +5,8 @@ import java.util.ArrayList;
 /**
  * Base version of the 2015 Chatbot class. Only stub methods are provided. Students will complete methods as part
  * of the project.
- * @author Cody Henrichsen
- * @version 1.2 10/23/15 ChatBot now talks to you FOREVER!!!
+ * @author Tobin Andersen
+ * @version 1.3 10/23/15 Completed contentChecker method.
  */
 public class Chatbot
 {
@@ -25,11 +25,23 @@ public class Chatbot
 		this.politicalTopicList = new ArrayList<String>();
 		this.userName = userName;
 		this.content = "VideoGames";
+		
+		buildMemesList();
+		buildPoliticalTopicsList();
 	}
 	
 	private void buildMemesList()
 	{
-		
+		this.memesList.add("cute animals");
+		this.memesList.add("doge");
+		this.memesList.add("Shit excuse for a teacher");
+		this.memesList.add("Guess what? Nobody cares.");
+		this.memesList.add("u wot m8");
+		this.memesList.add("gooby, plz");
+		this.memesList.add("GODAMMIT ARTHUR!!!!");
+		this.memesList.add("Asuming Direct Control");
+		this.memesList.add("Kill yourself");
+		this.memesList.add("I have learned literaly nothing in this calss, that's a fucking problem Cody");
 	}
 	
 	private void buildPoliticalTopicsList()
@@ -65,6 +77,13 @@ public class Chatbot
 	 */
 	public boolean contentChecker(String currentInput)
 	{
+		boolean hasContent = false;
+		
+		if(currentInput.toLowerCase().contains(content.toLowerCase()))
+		{
+			hasContent = true;
+		}
+		
 		return false;
 	}
 	
@@ -105,7 +124,7 @@ public class Chatbot
 	 */
 	public String getContent()
 	{
-		return null;
+		return content;
 	}
 	
 	/**

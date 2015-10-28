@@ -30,9 +30,14 @@ public class ChatbotController
 	
 	private void chat()
 	{
-		String textFromUser = myChat.getAnswer("Talk to the chatbot");
+		String textFromUser = myChat.getAnswer("What do you like?");
 		while(myChatBot.lengthChecker(textFromUser))
 		{
+			if(myChatBot.contentChecker(textFromUser))
+			{
+				myChat.displayResponse("Wow, I had no idea you loved " + myChatBot.getContent());
+			}
+			
 			 textFromUser = myChat.getAnswer("KA-KA-KA-KOMBO BREAKER!!!!!!" + textFromUser);
 		}
 	}
