@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Base version of the 2015 Chatbot class. Only stub methods are provided. Students will complete methods as part
  * of the project.
  * @author Tobin Andersen
- * @version 1.3 10/23/15 Completed contentChecker method.
+ * @version 1.4 10/23/15 Added meme Checker.
  */
 public class Chatbot
 {

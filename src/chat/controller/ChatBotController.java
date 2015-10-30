@@ -42,7 +42,7 @@ public class ChatbotController
 				display.displayResponse("Nice meme.");
 			}
 			
-			 textFromUser = display.getAnswer("K" + textFromUser);
+			 textFromUser = display.getAnswer("What else do you want to talk about besides " + textFromUser + " ?");
 		}
 	}
 	
