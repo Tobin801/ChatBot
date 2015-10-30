@@ -38,7 +38,7 @@ public class ChatbotController
 				myChat.displayResponse("Wow, I had no idea you loved " + myChatBot.getContent());
 			}
 			
-			 textFromUser = myChat.getAnswer("KA-KA-KA-KOMBO BREAKER!!!!!!" + textFromUser);
+			 textFromUser = myChat.getAnswer("K" + textFromUser);
 		}
 	}
 	
