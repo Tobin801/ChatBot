@@ -12,33 +12,37 @@ import chat.model.Chatbot;
 
 public class ChatbotController
 {
-	private ChatbotView myChat;
+	private ChatbotView display;
 	private Chatbot myChatBot;
 
 	public ChatbotController()
 	{
-		myChat = new ChatbotView();
-		String user = myChat.getAnswer("What is your name?");
+		display = new ChatbotView();
+		String user = display.getAnswer("What is your name?");
 		myChatBot = new Chatbot(user);
 	}
 
 	public void start()
 	{
-		myChat.displayResponse("Hello " + myChatBot.getUserName());
+		display.displayResponse("Hello " + myChatBot.getUserName());
 		chat();
 	}
 	
 	private void chat()
 	{
-		String textFromUser = myChat.getAnswer("What do you like?");
+		String textFromUser = display.getAnswer("What do you wish to talk about today good sir?");
 		while(myChatBot.lengthChecker(textFromUser))
 		{
 			if(myChatBot.contentChecker(textFromUser))
 			{
-				myChat.displayResponse("Wow, I had no idea you loved " + myChatBot.getContent());
+				display.displayResponse("Wow, I had no idea you loved " + myChatBot.getContent());
+			}
+			else if(myChatBot.memeChecker(textFromUser))
+			{
+				display.displayResponse("Nice meme.");
 			}
 			
-			 textFromUser = myChat.getAnswer("K" + textFromUser);
+			 textFromUser = display.getAnswer("K" + textFromUser);
 		}
 	}
 	

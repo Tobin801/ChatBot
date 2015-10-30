@@ -34,14 +34,14 @@ public class Chatbot
 	{
 		this.memesList.add("cute animals");
 		this.memesList.add("doge");
-		this.memesList.add("Shit excuse for a teacher");
-		this.memesList.add("Guess what? Nobody cares.");
+		this.memesList.add("No johns");
+		this.memesList.add("Bush did 7/11");
 		this.memesList.add("u wot m8");
 		this.memesList.add("gooby, plz");
-		this.memesList.add("GODAMMIT ARTHUR!!!!");
+		this.memesList.add("JUST DO IT!!!");
 		this.memesList.add("Asuming Direct Control");
-		this.memesList.add("Kill yourself");
-		this.memesList.add("I have learned literaly nothing in this calss, that's a fucking problem Cody");
+		this.memesList.add("Derp");
+		this.memesList.add("MOAR");
 	}
 	
 	private void buildPoliticalTopicsList()
@@ -106,7 +106,17 @@ public class Chatbot
 	 */
 	public boolean memeChecker(String currentInput)
 	{
-		return false;
+		boolean hasMeme = false;
+		
+		for(String meme : memesList)
+		{
+			if(currentInput.toLowerCase().contains(meme.toLowerCase()))
+			{
+				hasMeme = true;
+			}
+		}
+		
+		return hasMeme;
 	}
 	
 	/**
