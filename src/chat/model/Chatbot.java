@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Base version of the 2015 Chatbot class. Only stub methods are provided. Students will complete methods as part
  * of the project.
  * @author Tobin Andersen
- * @version 1.4 10/23/15 Added meme Checker.
+ * @version 1.5 10/23/15 Added switches.
  */
 public class Chatbot
 {
@@ -46,7 +46,16 @@ public class Chatbot
 	
 	private void buildPoliticalTopicsList()
 	{
-		
+		this.politicalTopicList.add("Trump");
+		this.politicalTopicList.add("GamerGate");
+		this.politicalTopicList.add("President");
+		this.politicalTopicList.add("Government Shutdown");
+		this.politicalTopicList.add("Deez nuts for president");
+		this.politicalTopicList.add("Republican");
+		this.politicalTopicList.add("Democrat");
+		this.politicalTopicList.add("Economy");
+		this.politicalTopicList.add("Debates");
+		this.politicalTopicList.add("November 8, 2016");
 	}
 	
 	/**
@@ -118,6 +127,52 @@ public class Chatbot
 		
 		return hasMeme;
 	}
+	
+public String processConvesation(String currentInput)
+{
+	String nextConversation = "What else do you want to talk about?";
+	int randomTopic = (int) (Math.random() * 5); //Generates a random number between 0 and 4.
+	
+	switch (randomTopic)
+	{
+		case 0:
+			if(contentChecker(currentInput))
+			{
+				nextConversation = "You talked about a special topic, neat! what else do you like?";
+			}
+			break;
+		case 1:
+			if(memeChecker(currentInput))
+			{
+				nextConversation = "Nice meme! What is your favorite food?";
+			}
+			break;
+		case 2:
+			if(politicalTopicChecker(currentInput))
+			{
+				nextConversation = "I didn't know you were so political! What are your hobies?";
+			}
+			break;
+		case 3:
+			//Choose your own test here
+			if(currentInput.contains("Fallout 4"))
+			{
+				nextConversation = "I'm really exited for Fallout 4! Hopefully it won't suck. What is your favorite color?";
+			}
+			break;
+		case 4:
+			//Random Topic for chat here.
+			nextConversation = "Intresting... Do like consoles or pc?";
+			break;
+		default:
+			//Never will happen!
+			nextConversation = "Comment and a question";
+			break;
+	}
+	
+	return nextConversation;
+}
+	
 	
 	/**
 	 * Returns the username of this Chatbot instance.
