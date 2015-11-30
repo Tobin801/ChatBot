@@ -12,8 +12,12 @@ public class Chatbot
 {
 	private ArrayList<String> memesList;
 	private ArrayList<String> politicalTopicList;
+	private ArrayList<String> keyboardMashList;
+	private ArrayList<String> quitList;
 	private String userName;
 	private String content;
+	private boolean keyboardMashChecker;
+	private boolean quitChecker;
 	
 	/**
 	 * Creates an instance of the Chatbot with the supplied username.
@@ -56,6 +60,20 @@ public class Chatbot
 		this.politicalTopicList.add("Economy");
 		this.politicalTopicList.add("Debates");
 		this.politicalTopicList.add("November 8, 2016");
+	}
+	
+	private void buildKeyboardMashList()
+	{
+		this.keyboardMashList.add("sdf");
+		this.keyboardMashList.add("dfg");
+		this.keyboardMashList.add("cvb");
+		this.keyboardMashList.add(",./");
+		
+	}
+	
+	private void buildQuitList()
+	{
+		this.quitList.add("quit");
 	}
 	
 	/**
@@ -104,9 +122,45 @@ public class Chatbot
 	 */
 	public boolean politicalTopicChecker(String currentInput)
 	{
-		return false;
+		boolean hasPoliticalTopic = false;
+		
+		for(String politicalTopic : politicalTopicList)
+		{
+			if(currentInput.toLowerCase().contains(politicalTopic.toLowerCase()))
+			{
+				hasPoliticalTopic = true;
+			}
+		}
+		
+		return hasPoliticalTopic;
 	}
 	
+	public boolean keyboardMashChecker(String currentInput)
+	{
+		boolean hasMash = false;
+		
+		for(String keyboardMash : keyboardMashList)
+		{
+			if(currentInput.toLowerCase().contains(keyboardMash.toLowerCase()))
+			{
+				hasMash = true;
+			}
+		}
+		
+		return hasMash;
+	}
+	
+	public boolean quitChecker(String currentInput)
+	{
+		boolean hasQuit = false;
+	
+		if(currentInput.toLowerCase().equals("quit"))
+		{
+			hasQuit = true;
+		}
+		
+		return hasQuit;
+	}
 	
 	/**
 	 * Checks to see that the supplied String value is in the current memesList variable.
@@ -218,5 +272,9 @@ public String processConvesation(String currentInput)
 	{
 		
 	}
+	
+	
+	
+	
+	
 }
-

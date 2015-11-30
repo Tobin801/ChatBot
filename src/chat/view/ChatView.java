@@ -2,7 +2,7 @@ package chat.view;
 
 import javax.swing.JOptionPane;
 
-public class ChatbotView
+public class ChatView
 {
 	/**
 	 * This is an input method using a popup window.
