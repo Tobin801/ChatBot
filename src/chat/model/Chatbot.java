@@ -27,11 +27,15 @@ public class Chatbot
 	{
 		this.memesList = new ArrayList<String>();
 		this.politicalTopicList = new ArrayList<String>();
+		this.keyboardMashList = new ArrayList<String>();
+		this.quitList = new ArrayList<String>();
 		this.userName = userName;
 		this.content = "VideoGames";
 		
 		buildMemesList();
 		buildPoliticalTopicsList();
+		buildKeyboardMashList();
+		buildQuitList();
 	}
 	
 	private void buildMemesList()
@@ -59,7 +63,7 @@ public class Chatbot
 		this.politicalTopicList.add("Democrat");
 		this.politicalTopicList.add("Economy");
 		this.politicalTopicList.add("Debates");
-		this.politicalTopicList.add("November 8, 2016");
+		this.politicalTopicList.add("11/4/16");
 	}
 	
 	private void buildKeyboardMashList()
@@ -252,7 +256,7 @@ public String processConvesation(String currentInput)
 	 */
 	public ArrayList<String> getMemesList()
 	{
-		return null;
+		return memesList;
 	}
 	
 	/**
@@ -261,7 +265,7 @@ public String processConvesation(String currentInput)
 	 */
 	public ArrayList<String> getPoliticalTopicList()
 	{
-		return null;
+		return politicalTopicList;
 	}
 	
 	/**
@@ -270,11 +274,6 @@ public String processConvesation(String currentInput)
 	 */
 	public void setContent(String content)
 	{
-		
+		this.content = content;
 	}
-	
-	
-	
-	
-	
 }

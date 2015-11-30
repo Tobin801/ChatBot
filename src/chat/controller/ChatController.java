@@ -39,11 +39,20 @@ public class ChatController
 			}
 			else if(myChatBot.memeChecker(textFromUser))
 			{
-				display.displayResponse("Nice meme.");
+		//		display.displayResponse("Nice meme.");
 			}
 			
 			 textFromUser = display.getAnswer("What else do you want to talk about besides " + textFromUser + " ?");
 		}
 	}
 	
+	public Chatbot getChatbot()
+	{
+		return myChatBot;
+	}
+	
+	public ChatView getChatView()
+	{
+		return display;
+	}
 }
