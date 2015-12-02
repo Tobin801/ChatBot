@@ -186,7 +186,7 @@ public class Chatbot
 		return hasMeme;
 	}
 	
-public String processConvesation(String currentInput)
+public String processConversation(String currentInput)
 {
 	String nextConversation = "What else do you want to talk about?";
 	int randomTopic = (int) (Math.random() * 5); //Generates a random number between 0 and 4.

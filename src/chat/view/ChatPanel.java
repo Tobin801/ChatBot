@@ -55,8 +55,12 @@ public class ChatPanel extends JPanel
 		chatButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
-			{
-				
+			{																						
+				String userText = chatTextField.getText();  	//Grab user text  √
+				String response = baseController.fromUserToChatbot(userText);  //send the text to the controller  √  //give text to chatbot to process √ //get chatbots answer √
+				chatTextArea.append("\nUser: " + userText);  //display users text √
+				chatTextArea.append("\nChatbot: " + response); //display answer √
+				chatTextField.setText(""); //clear user field √
 			}
 		});
 	}

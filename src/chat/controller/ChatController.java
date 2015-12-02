@@ -2,6 +2,7 @@ package chat.controller;
 
 import chat.view.ChatView;
 import chat.model.Chatbot;
+import chat.view.ChatFrame;
 
 /**
  * Controller for the Chatbot project.
@@ -14,18 +15,20 @@ public class ChatController
 {
 	private ChatView display;
 	private Chatbot myChatBot;
+	private ChatFrame baseFrame;
 
 	public ChatController()
 	{
 		display = new ChatView();
 		String user = display.getAnswer("What is your name?");
 		myChatBot = new Chatbot(user);
+		baseFrame = new ChatFrame(this);
 	}
 
 	public void start()
 	{
 		display.displayResponse("Hello " + myChatBot.getUserName());
-		chat();
+		//chat();
 	}
 	
 	private void chat()
@@ -33,17 +36,18 @@ public class ChatController
 		String textFromUser = display.getAnswer("What do you wish to talk about today good sir?");
 		while(myChatBot.lengthChecker(textFromUser))
 		{
-			if(myChatBot.contentChecker(textFromUser))
-			{
-				display.displayResponse("Wow, I had no idea you loved " + myChatBot.getContent());
-			}
-			else if(myChatBot.memeChecker(textFromUser))
-			{
-		//		display.displayResponse("Nice meme.");
-			}
-			
-			 textFromUser = display.getAnswer("What else do you want to talk about besides " + textFromUser + " ?");
+			textFromUser = myChatBot.processConversation(textFromUser);
+			textFromUser = display.getAnswer(textFromUser);
 		}
+	}
+	
+	public String fromUserToChatbot(String textFromUser)
+	{
+		String botResponse = "";
+		
+		botResponse = myChatBot.processConversation(textFromUser);
+		
+		return botResponse;
 	}
 	
 	public Chatbot getChatbot()
@@ -54,5 +58,10 @@ public class ChatController
 	public ChatView getChatView()
 	{
 		return display;
+	}
+	
+	public ChatFrame getBaseFrame()
+	{
+		return baseFrame;
 	}
 }
