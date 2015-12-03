@@ -21,8 +21,8 @@ public class ChatPanel extends JPanel
 		baseLayout = new SpringLayout();
 		chatTextArea = new JTextArea(10,30);
 		chatTextField = new JTextField(30);
-		promptLabel = new JLabel("Chat with meh");
-		chatButton = new JButton("asda");
+		promptLabel = new JLabel("");
+		chatButton = new JButton("Submit to ChatBot");
 		
 		setupPanel();
 		setupLayout();

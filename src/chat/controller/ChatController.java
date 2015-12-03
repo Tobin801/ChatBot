@@ -45,6 +45,11 @@ public class ChatController
 	{
 		String botResponse = "";
 		
+		if(myChatBot.quitChecker(textFromUser))
+		{
+			shutDown();
+		}
+			
 		botResponse = myChatBot.processConversation(textFromUser);
 		
 		return botResponse;
@@ -63,5 +68,11 @@ public class ChatController
 	public ChatFrame getBaseFrame()
 	{
 		return baseFrame;
+	}
+	
+	private void shutDown()
+	{
+		display.displayResponse("See ya, " + myChatBot.getUserName() +" ! Nice talking to you.");
+		System.exit(0);
 	}
 }

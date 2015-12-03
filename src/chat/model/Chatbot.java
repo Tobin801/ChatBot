@@ -191,6 +191,11 @@ public String processConversation(String currentInput)
 	String nextConversation = "What else do you want to talk about?";
 	int randomTopic = (int) (Math.random() * 5); //Generates a random number between 0 and 4.
 	
+	if(keyboardMashChecker(currentInput))
+	{
+		return "Stop mashing!!";
+	}
+	
 	switch (randomTopic)
 	{
 		case 0:
@@ -213,9 +218,9 @@ public String processConversation(String currentInput)
 			break;
 		case 3:
 			//Choose your own test here
-			if(currentInput.contains("Fallout 4"))
+			if(currentInput.contains("ctec"))
 			{
-				nextConversation = "I'm really exited for Fallout 4! Hopefully it won't suck. What is your favorite color?";
+				nextConversation = "This class is pretty cool! What is your favorite color?";
 			}
 			break;
 		case 4:

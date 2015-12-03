@@ -22,6 +22,7 @@ public class ChatFrame extends JFrame
 		this.setResizable(false);
 		this.setTitle("My window app");
 		this.setVisible(true);
+		this.setSize(550,  500);
 	}
 	
 	public ChatController getBaseController()
