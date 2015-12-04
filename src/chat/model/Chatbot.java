@@ -38,6 +38,9 @@ public class Chatbot
 		buildQuitList();
 	}
 	
+	/**
+	 * Makes a memes list
+	 */
 	private void buildMemesList()
 	{
 		this.memesList.add("cute animals");
@@ -52,6 +55,9 @@ public class Chatbot
 		this.memesList.add("MOAR");
 	}
 	
+	/**
+	 * Makes a politicle topic list
+	 */
 	private void buildPoliticalTopicsList()
 	{
 		this.politicalTopicList.add("Trump");
@@ -66,6 +72,9 @@ public class Chatbot
 		this.politicalTopicList.add("11/4/16");
 	}
 	
+	/**
+	 * Makes a list for keywords that chatbot  will detect as mashing
+	 */
 	private void buildKeyboardMashList()
 	{
 		this.keyboardMashList.add("sdf");
@@ -75,9 +84,15 @@ public class Chatbot
 		
 	}
 	
+	/**
+	 * Builds a list to detict if you want to quit.
+	 */
 	private void buildQuitList()
 	{
 		this.quitList.add("quit");
+		this.quitList.add("exit");
+		this.quitList.add("Quit");
+		this.quitList.add("Exit");
 	}
 	
 	/**
@@ -139,6 +154,12 @@ public class Chatbot
 		return hasPoliticalTopic;
 	}
 	
+	/**
+	 * Checks if the string matches any of the mash words.
+	 * Returns true if it does
+	 * @param currentInput
+	 * @return
+	 */
 	public boolean keyboardMashChecker(String currentInput)
 	{
 		boolean hasMash = false;
@@ -154,6 +175,11 @@ public class Chatbot
 		return hasMash;
 	}
 	
+	/**
+	 * Does the same thing as the other lists but for quit checker.
+	 * @param currentInput
+	 * @return
+	 */
 	public boolean quitChecker(String currentInput)
 	{
 		boolean hasQuit = false;
@@ -186,55 +212,60 @@ public class Chatbot
 		return hasMeme;
 	}
 	
-public String processConversation(String currentInput)
-{
-	String nextConversation = "What else do you want to talk about?";
-	int randomTopic = (int) (Math.random() * 5); //Generates a random number between 0 and 4.
-	
-	if(keyboardMashChecker(currentInput))
+	/**
+	 * Makes a conversation string. It will randomly change topics.
+	 * @param currentInput
+	 * @return
+	 */
+	public String processConversation(String currentInput)
 	{
-		return "Stop mashing!!";
+		String nextConversation = "What else do you want to talk about?";
+		int randomTopic = (int) (Math.random() * 5); //Generates a random number between 0 and 4.
+		
+		if(keyboardMashChecker(currentInput))
+		{
+			return "Stop mashing!!";
+		}
+		
+		switch (randomTopic)
+		{
+			case 0:
+				if(contentChecker(currentInput))
+				{
+					nextConversation = "You talked about a special topic, neat! what else do you like?";
+				}
+				break;
+			case 1:
+				if(memeChecker(currentInput))
+				{
+					nextConversation = "Nice meme! What is your favorite food?";
+				}
+				break;
+			case 2:
+				if(politicalTopicChecker(currentInput))
+				{
+					nextConversation = "I didn't know you were so political! What are your hobies?";
+				}
+				break;
+			case 3:
+				//Choose your own test here
+				if(currentInput.contains("ctec"))
+				{
+					nextConversation = "This class is pretty cool! What is your favorite color?";
+				}
+				break;
+			case 4:
+				//Random Topic for chat here.
+				nextConversation = "Intresting... Do like consoles or pc?";
+				break;
+			default:
+				//Never will happen!
+				nextConversation = "Comment and a question";
+				break;
+		}
+		
+		return nextConversation;
 	}
-	
-	switch (randomTopic)
-	{
-		case 0:
-			if(contentChecker(currentInput))
-			{
-				nextConversation = "You talked about a special topic, neat! what else do you like?";
-			}
-			break;
-		case 1:
-			if(memeChecker(currentInput))
-			{
-				nextConversation = "Nice meme! What is your favorite food?";
-			}
-			break;
-		case 2:
-			if(politicalTopicChecker(currentInput))
-			{
-				nextConversation = "I didn't know you were so political! What are your hobies?";
-			}
-			break;
-		case 3:
-			//Choose your own test here
-			if(currentInput.contains("ctec"))
-			{
-				nextConversation = "This class is pretty cool! What is your favorite color?";
-			}
-			break;
-		case 4:
-			//Random Topic for chat here.
-			nextConversation = "Intresting... Do like consoles or pc?";
-			break;
-		default:
-			//Never will happen!
-			nextConversation = "Comment and a question";
-			break;
-	}
-	
-	return nextConversation;
-}
 	
 	
 	/**
